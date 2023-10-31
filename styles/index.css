@@ -5,11 +5,13 @@
   --secondary-color: #f5f5f5;
   --button-color: #e2ff6b;
   --button-bg-color: #7ea5d7;
+  --tech-color: #ffaa00;
 }
 
 html {
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,6 +29,22 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   width: 10rem;
+}
+
+.btn:hover {
+  background-color: var(--button-color);
+  color: var(--button-bg-color);
+}
+
+.resume {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 0.75rem 1rem;
 }
 
 /* header section */
@@ -52,12 +70,17 @@ nav {
 }
 
 /* hamburger menu option*/
+
+.hamburger-menu {
+  background-color: white;
+}
+
 nav ul {
   display: none;
   flex-direction: column;
   list-style: none;
   position: absolute;
-  top: 4rem;
+  top: 5rem;
   gap: 1rem;
   right: 1rem;
 }
@@ -104,15 +127,19 @@ nav ul a:hover {
     flex-direction: row;
     position: relative;
     top: 0;
+    align-items: center;
   }
 
   nav ul li {
     border-bottom: 0;
-    padding: 1rem;
+  }
+
+  nav ul li:last-child {
+    padding: 0.5rem 1rem;
   }
 
   nav li a {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -126,7 +153,7 @@ main {
 
 /* hero section */
 .hero-main {
-  height: 90vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,9 +163,12 @@ main {
 .about {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
+  padding: 1rem;
   width: 20rem;
   gap: 1rem;
+  border-radius: 2rem;
+  -webkit-box-shadow: 1px 7px 31px 8px #898989;
+  box-shadow: 1px 7px 31px 8px #898989;
 }
 
 .btn-contact {
@@ -153,22 +183,30 @@ figure {
   color: var(--secondary-color);
 }
 
+main > h2 {
+  border-bottom: 3px solid;
+}
+
 /* medium sized screen */
 @media (min-width: 42rem) {
   .about {
     flex-direction: column;
-    padding: 0 1rem;
-    background-image: none;
+    padding: 1rem;
+    margin: 1rem 1.5rem;
     width: 30rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    gap: 1rem;
+
+    -webkit-box-shadow: 0;
+    box-shadow: none;
   }
 
   .about .btn-contact {
-    font-size: 1.5rem;
-    padding: 1rem 1.5rem;
-    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    margin: 1.25rem 0;
     font-weight: 600;
-    width: 15rem;
+    width: 12rem;
   }
 
   figure {
@@ -196,12 +234,12 @@ figure {
   flex-direction: column;
   padding: 1rem;
   margin: 1rem;
-  box-shadow: 0 0 5px 5px red;
+  box-shadow: 0 0 2.5px 2.5px #ff0000;
   gap: 1rem;
 }
 
-.project .project-img {
-  height: 100%;
+.project:hover {
+  box-shadow: 2px 1px 28px 2px rgba(255, 0, 0, 0.75);
 }
 
 .project-text {
@@ -225,11 +263,11 @@ figure {
 
 .project p:last-child {
   font-style: italic;
-  color: #d6b87e;
+  color: var(--tech-color);
   font-weight: 600;
 }
 
-.project p:last-child quote {
+.project p:last-child span {
   color: #7ea5d7;
 }
 
@@ -238,7 +276,6 @@ figure {
   .projects {
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
   }
 
@@ -307,13 +344,8 @@ figure {
     flex-wrap: wrap;
   }
 
-  .contact-me input,
-  .contact-me textarea {
-    width: 100%;
-  }
-
   .btn-send {
-    max-width: 8rem;
+    max-width: 4rem;
   }
 }
 /* footer */
@@ -321,4 +353,6 @@ figure {
 footer {
   display: flex;
   justify-content: center;
+  padding: 1rem;
+  font-weight: bold;
 }
